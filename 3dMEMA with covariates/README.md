@@ -13,7 +13,7 @@ create_3dMEMA_test.sh <model> <contrast> <subfn> <covfn>
 
 #### Example
 ```
-create_3dMEMA_test.sh BLOCK words subject_list.txt covariates.txt
+create_3dMEMA_test.sh BLOCK words participants_AVH+.txt Cov_psyrats_AVH+.tsv
 ```
 
 #### Script Breakdown
@@ -21,7 +21,7 @@ create_3dMEMA_test.sh BLOCK words subject_list.txt covariates.txt
    ```
    if ( $#argv != 4 ) then
        echo "usage: create_3dMEMA_test.sh <model> <contrast> <subfn> <covfn>"
-       echo "example: create_3dMEMA_test.sh BLOCK words subject_list.txt"
+       echo "example: create_3dMEMA_test.sh BLOCK words participants_AVH+.txt Cov_psyrats_AVH+.tsv"
        exit 0
    endif
    ```

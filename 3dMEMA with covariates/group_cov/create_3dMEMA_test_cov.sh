@@ -2,11 +2,11 @@
 
 if ( $#argv != 4 ) then
 	echo "usage: create_3dMEMA_test.sh <model> <contrast> <subfn> <covfn>"
-	echo "example: create_3dMEMA_test.sh BLOCK words subject_list.txt "
-    echo "model: "
-    echo "condstr: "
+	echo "example: create_3dMEMA_test.sh BLOCK words participants_AVH+.txt Cov_psyrats_AVH+.tsv"
+    echo "model: the HRF model used"
+    echo "condstr: the contrast to run group analysis"
     echo "subfn: file containing list of sub-<????> to be included in the group analysis"
-    echo "covfn: covariate file containing subject ID and the de-meaned covariates"
+    echo "covfn: covariate file containing subject ID and the covariates"
 	exit 0
 endif
 
