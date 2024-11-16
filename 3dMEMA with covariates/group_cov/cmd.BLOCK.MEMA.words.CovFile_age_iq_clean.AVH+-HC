@@ -1,0 +1,116 @@
+#!/bin/tcsh -xef
+
+# created by uber_ttest.py: version 2.1 (May 11, 2020)
+# creation date: Sun Nov 17 06:32:34 2024
+
+# ---------------------- set process variables ----------------------
+
+set mask_dset = ../../afni/derivatives/group_glm/mask_intersection_up2date+tlrc
+
+set dirA = ../../afni
+
+# specify and possibly create results directory
+set results_dir = ../../afni/derivatives/group_glm/test.BLOCK.3dMEMA_N=45.words.AVH+-HC.CovFile_age_iq_clean.results
+if ( ! -d $results_dir ) mkdir $results_dir
+
+# ------------------------- process the data -------------------------
+
+3dMEMA -prefix $results_dir/stats.mema                               \
+       -mask $mask_dset                                              \
+       -groups HC AVH+                                               \
+       -jobs 20 -max_zeros 0.25 -covariates CovFile_age_iq_clean.tsv \
+       -covariates_center age = 40.7727 40.087 iq = 101.682 98.3913  \
+       -covariates_model center=different slope=same                 \
+       -set HC                                                       \
+          sub-02 "$dirA/sub-02.results/stats.sub-02_REML+tlrc[10]"   \
+       "$dirA/sub-02.results/stats.sub-02_REML+tlrc[11]"             \
+          sub-03 "$dirA/sub-03.results/stats.sub-03_REML+tlrc[10]"   \
+       "$dirA/sub-03.results/stats.sub-03_REML+tlrc[11]"             \
+          sub-04 "$dirA/sub-04.results/stats.sub-04_REML+tlrc[10]"   \
+       "$dirA/sub-04.results/stats.sub-04_REML+tlrc[11]"             \
+          sub-05 "$dirA/sub-05.results/stats.sub-05_REML+tlrc[10]"   \
+       "$dirA/sub-05.results/stats.sub-05_REML+tlrc[11]"             \
+          sub-06 "$dirA/sub-06.results/stats.sub-06_REML+tlrc[10]"   \
+       "$dirA/sub-06.results/stats.sub-06_REML+tlrc[11]"             \
+          sub-07 "$dirA/sub-07.results/stats.sub-07_REML+tlrc[10]"   \
+       "$dirA/sub-07.results/stats.sub-07_REML+tlrc[11]"             \
+          sub-08 "$dirA/sub-08.results/stats.sub-08_REML+tlrc[10]"   \
+       "$dirA/sub-08.results/stats.sub-08_REML+tlrc[11]"             \
+          sub-09 "$dirA/sub-09.results/stats.sub-09_REML+tlrc[10]"   \
+       "$dirA/sub-09.results/stats.sub-09_REML+tlrc[11]"             \
+          sub-10 "$dirA/sub-10.results/stats.sub-10_REML+tlrc[10]"   \
+       "$dirA/sub-10.results/stats.sub-10_REML+tlrc[11]"             \
+          sub-11 "$dirA/sub-11.results/stats.sub-11_REML+tlrc[10]"   \
+       "$dirA/sub-11.results/stats.sub-11_REML+tlrc[11]"             \
+          sub-12 "$dirA/sub-12.results/stats.sub-12_REML+tlrc[10]"   \
+       "$dirA/sub-12.results/stats.sub-12_REML+tlrc[11]"             \
+          sub-13 "$dirA/sub-13.results/stats.sub-13_REML+tlrc[10]"   \
+       "$dirA/sub-13.results/stats.sub-13_REML+tlrc[11]"             \
+          sub-14 "$dirA/sub-14.results/stats.sub-14_REML+tlrc[10]"   \
+       "$dirA/sub-14.results/stats.sub-14_REML+tlrc[11]"             \
+          sub-15 "$dirA/sub-15.results/stats.sub-15_REML+tlrc[10]"   \
+       "$dirA/sub-15.results/stats.sub-15_REML+tlrc[11]"             \
+          sub-17 "$dirA/sub-17.results/stats.sub-17_REML+tlrc[10]"   \
+       "$dirA/sub-17.results/stats.sub-17_REML+tlrc[11]"             \
+          sub-19 "$dirA/sub-19.results/stats.sub-19_REML+tlrc[10]"   \
+       "$dirA/sub-19.results/stats.sub-19_REML+tlrc[11]"             \
+          sub-20 "$dirA/sub-20.results/stats.sub-20_REML+tlrc[10]"   \
+       "$dirA/sub-20.results/stats.sub-20_REML+tlrc[11]"             \
+          sub-21 "$dirA/sub-21.results/stats.sub-21_REML+tlrc[10]"   \
+       "$dirA/sub-21.results/stats.sub-21_REML+tlrc[11]"             \
+          sub-22 "$dirA/sub-22.results/stats.sub-22_REML+tlrc[10]"   \
+       "$dirA/sub-22.results/stats.sub-22_REML+tlrc[11]"             \
+          sub-23 "$dirA/sub-23.results/stats.sub-23_REML+tlrc[10]"   \
+       "$dirA/sub-23.results/stats.sub-23_REML+tlrc[11]"             \
+          sub-24 "$dirA/sub-24.results/stats.sub-24_REML+tlrc[10]"   \
+       "$dirA/sub-24.results/stats.sub-24_REML+tlrc[11]"             \
+          sub-25 "$dirA/sub-25.results/stats.sub-25_REML+tlrc[10]"   \
+       "$dirA/sub-25.results/stats.sub-25_REML+tlrc[11]"             \
+       -set AVH+                                                     \
+          sub-55 "$dirA/sub-55.results/stats.sub-55_REML+tlrc[10]"   \
+       "$dirA/sub-55.results/stats.sub-55_REML+tlrc[11]"             \
+          sub-56 "$dirA/sub-56.results/stats.sub-56_REML+tlrc[10]"   \
+       "$dirA/sub-56.results/stats.sub-56_REML+tlrc[11]"             \
+          sub-57 "$dirA/sub-57.results/stats.sub-57_REML+tlrc[10]"   \
+       "$dirA/sub-57.results/stats.sub-57_REML+tlrc[11]"             \
+          sub-58 "$dirA/sub-58.results/stats.sub-58_REML+tlrc[10]"   \
+       "$dirA/sub-58.results/stats.sub-58_REML+tlrc[11]"             \
+          sub-59 "$dirA/sub-59.results/stats.sub-59_REML+tlrc[10]"   \
+       "$dirA/sub-59.results/stats.sub-59_REML+tlrc[11]"             \
+          sub-60 "$dirA/sub-60.results/stats.sub-60_REML+tlrc[10]"   \
+       "$dirA/sub-60.results/stats.sub-60_REML+tlrc[11]"             \
+          sub-61 "$dirA/sub-61.results/stats.sub-61_REML+tlrc[10]"   \
+       "$dirA/sub-61.results/stats.sub-61_REML+tlrc[11]"             \
+          sub-62 "$dirA/sub-62.results/stats.sub-62_REML+tlrc[10]"   \
+       "$dirA/sub-62.results/stats.sub-62_REML+tlrc[11]"             \
+          sub-63 "$dirA/sub-63.results/stats.sub-63_REML+tlrc[10]"   \
+       "$dirA/sub-63.results/stats.sub-63_REML+tlrc[11]"             \
+          sub-64 "$dirA/sub-64.results/stats.sub-64_REML+tlrc[10]"   \
+       "$dirA/sub-64.results/stats.sub-64_REML+tlrc[11]"             \
+          sub-65 "$dirA/sub-65.results/stats.sub-65_REML+tlrc[10]"   \
+       "$dirA/sub-65.results/stats.sub-65_REML+tlrc[11]"             \
+          sub-66 "$dirA/sub-66.results/stats.sub-66_REML+tlrc[10]"   \
+       "$dirA/sub-66.results/stats.sub-66_REML+tlrc[11]"             \
+          sub-67 "$dirA/sub-67.results/stats.sub-67_REML+tlrc[10]"   \
+       "$dirA/sub-67.results/stats.sub-67_REML+tlrc[11]"             \
+          sub-68 "$dirA/sub-68.results/stats.sub-68_REML+tlrc[10]"   \
+       "$dirA/sub-68.results/stats.sub-68_REML+tlrc[11]"             \
+          sub-69 "$dirA/sub-69.results/stats.sub-69_REML+tlrc[10]"   \
+       "$dirA/sub-69.results/stats.sub-69_REML+tlrc[11]"             \
+          sub-70 "$dirA/sub-70.results/stats.sub-70_REML+tlrc[10]"   \
+       "$dirA/sub-70.results/stats.sub-70_REML+tlrc[11]"             \
+          sub-71 "$dirA/sub-71.results/stats.sub-71_REML+tlrc[10]"   \
+       "$dirA/sub-71.results/stats.sub-71_REML+tlrc[11]"             \
+          sub-72 "$dirA/sub-72.results/stats.sub-72_REML+tlrc[10]"   \
+       "$dirA/sub-72.results/stats.sub-72_REML+tlrc[11]"             \
+          sub-73 "$dirA/sub-73.results/stats.sub-73_REML+tlrc[10]"   \
+       "$dirA/sub-73.results/stats.sub-73_REML+tlrc[11]"             \
+          sub-74 "$dirA/sub-74.results/stats.sub-74_REML+tlrc[10]"   \
+       "$dirA/sub-74.results/stats.sub-74_REML+tlrc[11]"             \
+          sub-75 "$dirA/sub-75.results/stats.sub-75_REML+tlrc[10]"   \
+       "$dirA/sub-75.results/stats.sub-75_REML+tlrc[11]"             \
+          sub-76 "$dirA/sub-76.results/stats.sub-76_REML+tlrc[10]"   \
+       "$dirA/sub-76.results/stats.sub-76_REML+tlrc[11]"             \
+          sub-77 "$dirA/sub-77.results/stats.sub-77_REML+tlrc[10]"   \
+       "$dirA/sub-77.results/stats.sub-77_REML+tlrc[11]"
+
