@@ -110,7 +110,8 @@ create_3dMEMA_test.sh BLOCK words participants_AVH+.txt Cov_psyrats_AVH+.tsv
 
 #### Notes
 - Ensure the paths to data directories are correct and adjusted if the script is moved.
-- The covariate file should be formatted correctly with subject IDs and de-meaned covariates.
+- The covariate file should be formatted correctly with subject IDs and covariates.
+- The ID column has to be named "name" for 3dMEMA to work properly
 
 
 
@@ -234,6 +235,7 @@ create_3dMEMA_test_bygroup_cov.sh BLOCK words subject_list1.txt subject_list2.tx
 
 #### Notes
 - Ensure the paths to data directories are correct and adjusted if the script is moved.
-- The covariate file should be formatted correctly with subject IDs and de-meaned covariates.
-```
+- The covariate file should be formatted correctly with subject IDs and covariates.
+- The ID column requires column name "name" for 3dMEMA to work properly
+
 
