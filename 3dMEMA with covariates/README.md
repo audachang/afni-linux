@@ -114,17 +114,13 @@ create_3dMEMA_test.sh BLOCK words participants_AVH+.txt Cov_psyrats_AVH+.tsv
 
 
 
-
-
-
-```markdown
-
 ### create_3dMEMA_test_bygroup_cov.sh Script Explanation
 
 This script is designed to perform a group analysis using 3dMEMA (Mixed-Effects Multilevel Analysis) in AFNI with covariates. Below is a detailed explanation of the script's syntax and contents.
+The script deals with two groups, each with covariates centered at their respective mean
 
 #### Usage
-```
+
 create_3dMEMA_test_bygroup_cov.sh <model> <contrast> <subfn1> <subfn2> <covfn>
 ```
 - `<model>`: The HRF model used for this analysis.
@@ -132,6 +128,7 @@ create_3dMEMA_test_bygroup_cov.sh <model> <contrast> <subfn1> <subfn2> <covfn>
 - `<subfn1>`: File containing list of subjects to be included in group 1.
 - `<subfn2>`: File containing list of subjects to be included in group 2.
 - `<covfn>`: Covariate file.
+```
 
 #### Example
 ```
